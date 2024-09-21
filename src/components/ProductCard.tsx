@@ -1,6 +1,6 @@
 import Image from "./Image";
 import Button from "./UI/Button";
-import { txtSlicer } from "./untils/Slicer";
+import { txtSlicer } from "./Untils/Slicer";
 const ProductCard = () => {
   return (
     <>
