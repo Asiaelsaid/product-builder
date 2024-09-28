@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 import ProductCard from "./components/ProductCard";
 import Model from "./components/UI/Model";
 import Button from "./components/UI/Button";
-import { Colors, formInputsList } from "./data";
+import { Colors, formInputsList, ProductList } from "./data";
 import Input from "./components/UI/Input";
 import { IProduct } from "./Interface/intex";
 import { ProductValidation } from "./Validation/ProductValidation";
@@ -26,6 +26,7 @@ const App = () => {
   /* ------------------------- STATE----------------------- */
   const [isOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
+  const [productList, setProductList] = useState(ProductList);
   const [tempColors, setTempColors] = useState<string[]>([]);
 
   const [errors, setErrors] = useState({
@@ -70,7 +71,11 @@ const App = () => {
   };
 
   /* ------------------------- RENDER ----------------------- */
-
+const renderProductList=productList.map((product)=>{
+  return (
+    <ProductCard key={product.id} product={product} />
+  )
+})
   const renderFormInputList = formInputsList.map((input) => (
     <div className="flex flex-col" key={input.id}>
       <label
@@ -126,16 +131,10 @@ const App = () => {
         </Button>
 
         <div className="p-2 m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 rounded-md">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {renderProductList}
+
         </div>
-        <form className="space-y-2">
+        <form className="space-y-2  ">
           <Model
             isOpen={isOpen}
             setIsOpen={setIsOpen}

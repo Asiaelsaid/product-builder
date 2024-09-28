@@ -1,31 +1,34 @@
+import { IProduct } from "../Interface/intex";
 import Image from "./Image";
 import Button from "./UI/Button";
 import { txtSlicer } from "./Untils/Slicer";
-const ProductCard = () => {
+interface IProps {
+product:IProduct
+}
+const ProductCard:React.FC<IProps>  = ({product}) => {
   return (
     <>
       <div className="max-w-sm md:max-w-lg mx-auto md:mx-auto border rounded-md my-3 p-2">
         <Image
-          imageUrl="https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?cs=srgb&dl=pexels-bess-hamiti-83687-35537.jpg&fm=jpg"
-          alt="kides image"
-          className="rounded-md my-2"
+          imageUrl={product.imgURL}
+          alt={product.title}
+          className="rounded-md my-2 h-40 w-full object-contain"
         />
-        <h2>title </h2>
-        <p>
-          {txtSlicer(
-            " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and  scrambled it to make a type specimen book"
-          )}
+        <h2>{product.title} </h2>
+        <p className="h-12">
+        {txtSlicer(product.description)}
+
         </p>
         <div className="flex my-2 space-x-1">
-          <span className="w-5 h-5 bg-neutral-500 rounded-full cursor-pointer" />
-          <span className="w-5 h-5 bg-red-500 rounded-full cursor-pointer" />
-          <span className="w-5 h-5 bg-amber-800 rounded-full cursor-pointer" />
+          {product.colors.map((color)=>{
+            return <span key={color} className={`w-5 h-5 rounded-full cursor-pointer`} style={{backgroundColor:color}}/>
+          })}
         </div>
         <div className="flex items-center justify-between">
-          <p> $ 200 </p>
+          <p> $ {product.price} </p>
           <Image
-            imageUrl="https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?cs=srgb&dl=pexels-bess-hamiti-83687-35537.jpg&fm=jpg"
-            alt="kides image"
+            imageUrl={product.imgURL}
+            alt={product.title}
             className="w-10 h-10 rounded-full object-cover"
           />
         </div>
