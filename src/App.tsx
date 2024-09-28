@@ -8,6 +8,7 @@ import { IProduct } from "./Interface/intex";
 import { ProductValidation } from "./Validation/ProductValidation";
 import ErrorMsg from "./components/ErrorMsg";
 import CircleColor from "./components/CircleColor";
+import Select from "./components/UI/Select";
 
 const App = () => {
   const defaultProductObj = {
@@ -16,14 +17,16 @@ const App = () => {
     price: "",
     description: "",
     colors: [],
-    category: "",
+    category: {
+      name:"",
+      imgURL:"",
+    },
     imgURL: "",
   };
   /* ------------------------- STATE----------------------- */
   const [isOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
   const [tempColors, setTempColors] = useState<string[]>([]);
-  console.log(tempColors);
 
   const [errors, setErrors] = useState({
     title: "",
@@ -46,8 +49,6 @@ const App = () => {
 
   const submitHandler = (): void => {
     // const submitHandler = (event:FormEvent<HTMLFormElement>): void => {
-    // event.preventDefault();
-    console.log("product", product);
     const { title, description, price, imgURL } = product;
     const errors = ProductValidation({
       title: title,
@@ -144,6 +145,7 @@ const App = () => {
             <div className="flex items-center flex-wrap space-x-1">
               {renderTempColors}
             </div>
+            <Select />
             <div className="flex items-center flex-wrap space-x-1">
               {renderProductColors}
             </div>

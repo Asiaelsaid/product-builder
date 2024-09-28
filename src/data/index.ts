@@ -1,5 +1,7 @@
-import { IFormInput } from "../Interface/intex";
-
+import { IFormInput, IProduct } from "../Interface/intex";
+export const ProductList :IProduct[]=[
+  
+]
 export const formInputsList: IFormInput[] = [
   { id: "title", name: "title", label: "Product Title ", type: "text" },
   {

@@ -3,7 +3,10 @@ export interface IProduct {
   title: string;
   description: string;
   price: string;
-  category: string;
+  category: {
+    name: string;
+    imgURL: string;
+  };
   imgURL: string;
   colors: string[];
 }
@@ -12,4 +15,9 @@ export interface IFormInput {
   name: "title" | "description" | "price"  | "imgURL";
   label: string;
   type: string;
+}
+export interface ICategory{
+  id:string;
+  name:string;
+  imgURL:string;
 }
