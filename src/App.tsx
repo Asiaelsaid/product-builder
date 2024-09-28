@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 import ProductCard from "./components/ProductCard";
 import Model from "./components/UI/Model";
 import Button from "./components/UI/Button";
-import { Colors, FormInputsList, ProductList } from "./data";
+import { Colors, FormInputsList, ProductList } from "./data/index"
 import Input from "./components/UI/Input";
 import { IProduct } from "./Interface/intex";
 import { ProductValidation } from "./Validation/ProductValidation";
