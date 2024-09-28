@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 import ProductCard from "./components/ProductCard";
 import Model from "./components/UI/Model";
 import Button from "./components/UI/Button";
-import { Colors, formInputsList, ProductList } from "./data";
+import { Colors, FormInputsList, ProductList } from "./data";
 import Input from "./components/UI/Input";
 import { IProduct } from "./Interface/intex";
 import { ProductValidation } from "./Validation/ProductValidation";
@@ -76,7 +76,7 @@ const renderProductList=productList.map((product)=>{
     <ProductCard key={product.id} product={product} />
   )
 })
-  const renderFormInputList = formInputsList.map((input) => (
+  const renderFormInputList = FormInputsList.map((input) => (
     <div className="flex flex-col" key={input.id}>
       <label
         htmlFor={input.id}

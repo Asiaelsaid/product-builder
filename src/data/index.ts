@@ -244,7 +244,7 @@ export const ProductList: IProduct[] = [
   },
 ];
 
-export const formInputsList: IFormInput[] = [
+export const FormInputsList: IFormInput[] = [
   { id: "title", name: "title", label: "Product Title ", type: "text" },
   {
     id: "description",
@@ -285,4 +285,25 @@ export const Colors: string[] = [
   "#DC143C", // Crimson
   "#708090", // Slate Gray
   "#2F4F4F", // Dark Slate Gray
+];
+export const Categories = [
+  {
+    id: 1,
+    name: 'Electronics',
+    imgURL:
+      '/src/assets/images/elect.webp',
+  },
+  {
+    id: 2,
+    name: 'Fashion',
+    imgURL:
+    'src/assets/images/Fashion catogery.jpg',
+  },
+  {
+    id: 3,
+    name: 'Sports',
+    imgURL:
+    'src/assets/images/sports.png',
+  },
+  
 ];
