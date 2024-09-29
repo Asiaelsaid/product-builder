@@ -3,7 +3,7 @@
       id: 1,
       name: 'Electronics',
       imgURL:
-        '/src/assets/images/elect.webp',
+        '/src/assets/images/Electronics.png',
     },
     {
       id: 2,
@@ -15,7 +15,7 @@
       id: 3,
       name: 'Sports',
       imgURL:
-      'src/assets/images/sports.png',
+      'src/assets/images/Sports.png',
     },
     
   ];

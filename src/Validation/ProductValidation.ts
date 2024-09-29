@@ -20,7 +20,7 @@ export const ProductValidation = (product: {
     price: "",
     imgURL: "",
   };
-  const validUrl = /^(ftp|http|https):\/\/[^ "]+$/.test(product.imgURL);
+  const validUrl = /^(ftp|http|https):\/\/[^ "]+$/.test(product.imgURL)||" ";
   if (
     !product.title.trim() ||
     product.title.length < 10 ||

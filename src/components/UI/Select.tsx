@@ -3,11 +3,25 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react';
 import { Categories } from '../../data';
 
+interface ICategory {
+  name: string;
+  imgURL: string;
+}
 
+interface SelectProps {
+  onCategoryChange: (category: ICategory) => void; 
+}
   
-const Select = () => {
-    const [selected, setSelected] = useState(Categories[0])
-    return <Listbox value={selected} onChange={setSelected}>
+const Select = ({onCategoryChange}:SelectProps) => {
+    const [selected, setSelected] = useState<ICategory>(Categories[0])
+
+
+    const handleSelection = (category:ICategory) => {
+      setSelected(category);
+      onCategoryChange(category); 
+    };
+  
+    return <Listbox value={selected} onChange={handleSelection}>
     <Label className="block text-sm font-medium leading-6 text-gray-900">Categories</Label>
     <div className="relative mt-2">
       <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-3 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">

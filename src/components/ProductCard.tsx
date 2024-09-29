@@ -1,11 +1,14 @@
 import { IProduct } from "../Interface/intex";
 import Image from "./Image";
 import Button from "./UI/Button";
-import { txtSlicer } from "./Untils/Slicer";
+import { txtSlicer } from "./untils/Slicer";
 interface IProps {
-product:IProduct
+product:IProduct;
+onEdit:(product:IProduct)=>void;
+onDelete: (productId: string) => void;
 }
-const ProductCard:React.FC<IProps>  = ({product}) => {
+const ProductCard:React.FC<IProps>  = ({product,onEdit,onDelete}) => {
+
   return (
     <>
       <div className="max-w-sm md:max-w-lg mx-auto md:mx-auto border rounded-md my-3 p-2">
@@ -27,14 +30,14 @@ const ProductCard:React.FC<IProps>  = ({product}) => {
         <div className="flex items-center justify-between">
           <p> $ {product.price} </p>
           <Image
-            imageUrl={product.imgURL}
+            imageUrl={product.category.imgURL}
             alt={product.title}
             className="w-10 h-10 rounded-full object-cover"
           />
         </div>
         <div className="flex items-center justify-between mt-5 space-x-2">
-          <Button className="bg-blue-500">Eidt</Button>
-          <Button className="bg-red-600">Delete</Button>
+          <Button className="bg-stone-500" onClick={()=>onEdit(product)}>Edit</Button>
+          <Button className="bg-red-700" onClick={() => onDelete(product.id)}>Delete</Button>
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@ interface IProps {
   title?: string;
 }
 
-const Model: React.FC<IProps> = ({ isOpen, setIsOpen, title, children }) => {
+const Modal: React.FC<IProps> = ({ isOpen, setIsOpen, title, children }) => {
   return (
     <>
       <Dialog
@@ -27,4 +27,4 @@ const Model: React.FC<IProps> = ({ isOpen, setIsOpen, title, children }) => {
   );
 };
 
-export default Model;
+export default Modal;
